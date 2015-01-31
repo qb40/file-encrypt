@@ -1,3 +1,4 @@
+'function declarations
 DECLARE FUNCTION decodestring$ (str1$, pass$)
 DECLARE FUNCTION encodestring$ (str1$, pass$)
 DECLARE FUNCTION boxinput$ (n$, y%, pass%)
@@ -10,33 +11,22 @@ DECLARE SUB statusbox (n$, y%, size%)
 DECLARE SUB percent (done&, total&, y%)
 
 
-
-
-
-'Declaring Keys
+'keys
 CONST backspc = 8, enter = 13, htab = 9, esc = 27
 CONST left = 75, right = 77, up = 72, down = 80
 CONST uplt = 71, uprt = 73, dnlt = 79, dnrt = 81
 CONST insert = 82, home = 73, pageup = 71, del = 83, endk = 81, pagedn = 79
 CONST kf1 = 59, kf2 = 60, kf3 = 61, kf4 = 62, kf5 = 63, kf6 = 64, kf7 = 65, kf8 = 66, kf9 = 67, kf10 = 68, kf11 = 133, kf12 = 134
-'Keys declared
 
+'constants
 CONST loadsize = 1000
 
 
-
-
-
-
-
-
-
-
-
-
+'start
 CLS
 draws
 GOTO mainmenu
+
 
 comeback:
 SELECT CASE sel%
@@ -44,7 +34,7 @@ CASE 0
 clears
 LOCATE 5, 25
 COLOR 14, 0
-PRINT "ENCODE FILE:";
+PRINT "ENCRYPT FILE:";
 COLOR 15, 1
 file$ = boxinput$("File Name:", 6, 0)
 COLOR 7, 0
@@ -63,21 +53,21 @@ PRINT "Password doesn't match.";
 LOOP UNTIL pass$ = pas2$
 clears
 COLOR 15, 1
-out$ = boxinput$("Encoded file name:", 6, 0)
+out$ = boxinput$("Encrypted file name:", 6, 0)
 start
 encode
 CASE 1
 clears
 LOCATE 5, 25
 COLOR 14, 0
-PRINT "DECODE FILE:";
+PRINT "DECRYPT FILE:";
 COLOR 15, 1
-file$ = boxinput$("Encoded File Name:", 6, 0)
+file$ = boxinput$("Encrypted File Name:", 6, 0)
 COLOR 7, 0
 LOCATE 20, 4
-PRINT "*  An Encoded file may have password of 1-55 characters.";
+PRINT "*  An Encrypted file may have password of 1-55 characters.";
 LOCATE 21, 4
-PRINT "** An Encoded file may be Multi-Encoded file."
+PRINT "** An Encrypted file may be Multi-Encrypted file."
 DO
 COLOR 15, 1
 pass$ = boxinput$("Password:", 6, 1)
@@ -89,16 +79,11 @@ PRINT "Password doesn't match.";
 LOOP UNTIL pass$ = pas2$
 clears
 COLOR 15, 1
-out$ = boxinput$("Decoded file name:", 6, 0)
+out$ = boxinput$("Decrypted file name:", 6, 0)
 start
 decode
 CASE ELSE
 END SELECT
-
-
-
-
-
 
 
 mainmenu:
@@ -116,7 +101,7 @@ SELECT CASE k$
 CASE CHR$(esc)
 CLS
 COLOR 15, 0
-PRINT "Thank You for using ENCODER."
+PRINT "Thank You for using FILE ENCRYPT."
 PRINT
 PRINT
 PRINT "developed by: Subhajit Sahu"
@@ -134,42 +119,21 @@ LOOP UNTIL k$ = CHR$(enter)
 GOTO comeback
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 dispoptmain:
 IF (sel% = 0) THEN
 COLOR 15, 14
 LOCATE 5, 30, 0
-PRINT "- Encode File";
+PRINT "- Encrypt File";
 COLOR 15, 0
 LOCATE 6, 30, 0
-PRINT "- Decode File";
+PRINT "- Decrypt File";
 ELSE
 COLOR 15, 0
 LOCATE 5, 30, 0
-PRINT "- Encode File";
+PRINT "- Encrypt File";
 COLOR 15, 14
 LOCATE 6, 30, 0
-PRINT "- Decode File";
+PRINT "- Decrypt File";
 END IF
 RETURN
 
@@ -253,7 +217,7 @@ dat$ = INPUT$(7, #1)
 IF (dat$ <> "ENCODED") THEN
 COLOR 7, 2
 LOCATE 9, 7, 0
-PRINT "File "; file$; " is not an Encoded file.";
+PRINT "File "; file$; " is not an Encrypted file.";
 LOCATE 10, 7, 0
 PRINT "Press any key";
 k$ = INPUT$(1)
@@ -261,12 +225,12 @@ GOTO enddecode
 END IF
 chksum$ = INPUT$(8, #1)
 p& = 1
-statusbox "DECODING:", 5, 9
+statusbox "DECRYPTING:", 5, 9
 COLOR 7, 2
 LOCATE 9, 7, 0
-PRINT "Decoding of file "; file$; " is in progress.";
+PRINT "Decrypting of file "; file$; " is in progress.";
 LOCATE 10, 7, 0
-PRINT "Decoded file is "; out$; ".";
+PRINT "Decrypted file is "; out$; ".";
 total& = LOF(1) - 16
 done& = 0
 DO
@@ -282,9 +246,9 @@ CLOSE #1, #2
 IF (chkgot$ = chksum$) THEN
 COLOR 7, 2
 LOCATE 9, 7, 0
-PRINT "Decoding of file "; file$; " is complete.   ";
+PRINT "Decrypting of file "; file$; " is complete.   ";
 LOCATE 10, 7, 0
-PRINT "Decoded file is "; out$; ".";
+PRINT "Decrypted file is "; out$; ".";
 LOCATE 11, 7, 0
 PRINT "Press any key"
 k$ = INPUT$(1)
@@ -293,7 +257,7 @@ KILL out$
 clears
 COLOR 7, 2
 LOCATE 9, 7, 0
-PRINT "FATAL ERROR: File "; file$; " could not be decoded.";
+PRINT "FATAL ERROR: File "; file$; " could not be decrypted.";
 LOCATE 10, 7, 0
 PRINT "File "; out$; " could not be created. Check Password.";
 LOCATE 11, 7, 0
@@ -320,7 +284,7 @@ END FUNCTION
 
 SUB draws
 PRINT "É"; STRING$(78, "Í"); "»"
-PRINT "º"; STRING$(35, " "); "ENCODER"; STRING$(36, " "); "º"
+PRINT "º"; STRING$(33, " "); "FILE ENCRYPT"; STRING$(33, " "); "º"
 PRINT "Ì"; STRING$(78, "Í"); "¹"
 FOR i% = 4 TO 23
 PRINT "º"; STRING$(78, " "); "º"
@@ -343,12 +307,12 @@ END IF
 dat$ = "ENCODED" + STRING$(8, 0)
 PUT #2, 1, dat$
 p& = 16
-statusbox "ENCODING:", 5, 9
+statusbox "ENCRYPTING:", 5, 9
 COLOR 7, 2
 LOCATE 9, 7, 0
-PRINT "Encoding of file "; file$; " is in progress.";
+PRINT "Encrypting of file "; file$; " is in progress.";
 LOCATE 10, 7, 0
-PRINT "Encoded file is "; out$; ".";
+PRINT "Encrypted file is "; out$; ".";
 total& = LOF(1)
 done& = 0
 DO
@@ -364,9 +328,9 @@ PUT #2, 8, dat$
 CLOSE #1, #2
 COLOR 7, 2
 LOCATE 9, 7, 0
-PRINT "Encoding of file "; file$; " is complete.   ";
+PRINT "Encrypting of file "; file$; " is complete.   ";
 LOCATE 10, 7, 0
-PRINT "Encoded file is "; out$; ".";
+PRINT "Encrypted file is "; out$; ".";
 LOCATE 11, 7, 0
 PRINT "Press any key";
 k$ = INPUT$(1)
