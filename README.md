@@ -52,7 +52,7 @@ Encryption done : `README.md` -> `README.MDE`.
 
 
 <img src="/assets/img/7.png" width="70%"><br/>
-Encrypted file to be decrypted : `README.MDE`.
+Encrypted file : `README.MDE` (to be decrypted).
 <br/>
 <br/>
 
