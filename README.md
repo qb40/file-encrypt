@@ -1,42 +1,99 @@
-###################################
-##           ENCODER             ##
-###################################
+#qb-file-encrypt
 
-FREEWARE:
-This program is a freeware which means that you may
-copy it, distribute it by any means freely. The author
-is not responsible for any damage caused by the use
-of this program on any device. If however any one wants
-to change the contents of the program, please contact
-the author.
-
-USAGE:
-This program is quite simple to use. All one has to do
-is to select wether to encode a file or to decode a file.
-
-If 'Encode File' is selected then first the name of the
-file to be encoded must be given, followed by the password
-with which to encode(retype password also). Finally give
-the name of the encoded file. All done. Soon encoding
-will be over. 
-
-If 'Decode File' is selected then first the name of the
-file to be decoded must be given, followed by the password
-with which to decode(retype password also). Finally give
-the name of the decoded file. However, in this case the program
-tries to decode file using the the pasword given by you. If your
-password is incorrect then it will be reported that password may
-be wrong. If password is correct then all over.
-
-CONTENTS:
-Readme.txt, Encoder.bas, Encoder.exe
-
-CONTACT:
-Developed by: Subhajit Sahu
-Mail Address: wolfram77@gmail.com
-
-**********************************
+**qb-file-encrypt** is a dos tool for encrypting and decrypting a file
+using polygraphic substitution ciper. It uses a checksum to verify the
+integrity of the decrypted file. It can be used to prevent someone else
+to misuse your file in case he/she gets hands on it. This is a DOS program,
+hence you would need [DOSBox](http://www.dosbox.com/) to use it.
 
 
+##demo
 
-END
+<img src="/assets/img/0.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/1.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/2.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/3.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/4.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/5.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/6.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/7.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/8.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/9.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/10.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/11.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/12.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/13.png" width="70%"><br/>
+a
+<br/>
+<br/>
+
+
+<img src="/assets/img/14.png" width="70%"><br/>
+a
+<br/>
+<br/>
