@@ -1,11 +1,10 @@
-**fileencrypt** is a dos tool for encrypting and decrypting a file
+**fileencrypt** is a DOS tool for encrypting and decrypting a file
 using polygraphic substitution ciper. It uses a checksum to verify the
 integrity of the decrypted file. It can be used to prevent someone else
 to misuse your file in case he/she gets hands on it. This is a DOS program,
 hence you would need [DOSBox](http://www.dosbox.com/) to use it.
 
-
-## demo
+<br>
 
 <img src="https://raw.githubusercontent.com/qb40/fileencrypt/gh-pages/0/image/0.png" width="70%"><br/>
 Start `ENCRYPT.EXE`. Select `Encrypt File`.
